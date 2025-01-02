@@ -54,7 +54,7 @@ function CharacterCard({ id, name, characterClass, bio, age, height, level, inve
             </div>
           </div>
         </div>
-        <Link href={`/characters/${id}`} className="stretched-link"></Link>
+        <Link to={`/characters/${id}`} className="stretched-link"></Link>
       </div>
     </div>
   );
