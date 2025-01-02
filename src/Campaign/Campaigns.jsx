@@ -23,10 +23,10 @@ const Campaigns = () => {
 
   return(
     <div className="container">
-        <div className="content">
-            <a href={`/campaigns/create`} className="fancy-btn btn btn-sm fs-4">
+        <div>
+            <Link to="/campaigns/create" className="fancy-btn btn btn-sm fs-4">
               Create
-            </a>
+            </Link>
         <SearchForm searchFor={search} />
         </div>
       <div className="Campaign col-md-8 offset-md-2 mt-3">
