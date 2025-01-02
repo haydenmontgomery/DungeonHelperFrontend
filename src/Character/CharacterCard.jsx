@@ -1,5 +1,6 @@
 import React from "react";
 import "./CharacterCard.css";
+import { Link } from "react-router-dom";
 
 const BASE_URL = import.meta.env.VITE_REACT_APP_BASE_URL || "http://localhost:3001";
 // Show character information. Is rendered by CharacterCardList to show a "card" for each character.
@@ -53,7 +54,7 @@ function CharacterCard({ id, name, characterClass, bio, age, height, level, inve
             </div>
           </div>
         </div>
-        <a href={`/characters/${id}`} className="stretched-link"></a>
+        <Link href={`/characters/${id}`} className="stretched-link"></Link>
       </div>
     </div>
   );
