@@ -78,13 +78,15 @@ class DungeonHelperApi {
 
   /* Campaign post to add admins. Takes {title, username} */
   static async addAdminCampaign(title, username) {
-    let res = await this.request(`campaigns/${title}/admins/${username}`, "post");
+    let res = await this.request(`campaigns/${title}/admins/${username}`, {}, "post");
     return res.campaign;
   }
 
   /* Campaign post to add users/characters. Takes {title, username, character_id} */
   static async addCharacterCampaign(title, username, character_id) {
-    let res = await this.request(`campaigns/${title}/${username}/${character_id}`, "post");
+    console.log(title, username, character_id)
+    let res = await this.request(`campaigns/${title}/${username}/${character_id}`, {}, "post");
+    console.log(res);
     return res.campaign;
   }
 

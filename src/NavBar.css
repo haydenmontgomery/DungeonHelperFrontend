@@ -1,8 +1,12 @@
 .NavBar {
-  padding-top: 2em;
+  padding-top: 3em;
   text-shadow: 2px 2px 5px rgb(52, 48, 47);
 }
 
+.Back {
+  background-color: rgb(235, 235, 235, 0.5);
+  line-height: 1.2;
+}
 
 .fancy-btn{
   display:inline-block;

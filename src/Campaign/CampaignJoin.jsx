@@ -14,6 +14,7 @@ function CampaignJoin() {
   const { currentUser } = useContext(UserContext);
 
   const [campaign, setCampaign] = useState(null);
+  const [errMessage, setErrMessage] = useState(null);
 
   useEffect(() => {
     async function getCampaign() {
@@ -29,6 +30,7 @@ function CampaignJoin() {
       await DungeonHelperApi.addCharacterCampaign(title, currentUser.username, characterId)
       navigate(`/campaigns/${title}`)
     } catch(e) {
+      setErrMessage("Join error, please try again later.")
       console.error(e);
     }
   }
@@ -36,6 +38,9 @@ function CampaignJoin() {
   if (!campaign) return <LoadingSign />;
   return (
     <>
+    <div>
+      <h3>Which character will join the campaign?</h3>
+    </div>
     <div className="CampaignJoin col-md-8 offset-md-2">
       <form onSubmit={(e) => {
         e.preventDefault();
@@ -54,6 +59,9 @@ function CampaignJoin() {
           </option>
         ))}
         </select>
+        <div>
+          <span style={{ color: 'red' }}>{errMessage}</span>
+        </div>
         {campaign.characters.length < campaign.maxPlayers ? (
           campaign.admins.some(admin => admin.admin_id === currentUser.id) ? (
             <button className="fancy-btn btn fs-5" type="submit">Join</button>

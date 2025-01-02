@@ -23,6 +23,7 @@ const CharacterCreate = () => {
   const [formData, setFormData] = useState(INITIAL_STATE)
   const [isInvalid, setIsInvalid] = useState(true);
   const [isTouched, setIsTouched] = useState(false);
+  const [errMessage, setErrMessage] = useState();
 
   //Once all forms input have been touched, it can submit unless the values are blank.
   function handleChange(e) {
@@ -44,10 +45,12 @@ const CharacterCreate = () => {
     e.preventDefault();
     //debugger
       try {
+        setErrMessage(null);
         await DungeonHelperApi.createCharacter(formData);
         navigate("/profile")
       } catch(err){
         console.log(err)
+        setErrMessage("Please fill out all Required* inputs.");
       }
       setIsInvalid(true);
       setIsTouched(false);
@@ -59,7 +62,7 @@ const CharacterCreate = () => {
       <p className="h1 text-center">Create Character</p>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="name" className="form-label">Name</label>
+          <label htmlFor="name" className="form-label">Name*</label>
           <input 
           id="name"
           type="text"
@@ -70,7 +73,7 @@ const CharacterCreate = () => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="bio" className="form-label">Bio</label>
+          <label htmlFor="bio" className="form-label">Bio*</label>
           <input 
           id="bio"
           type="text"
@@ -81,7 +84,7 @@ const CharacterCreate = () => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="className" className="form-label">Class</label>
+          <label htmlFor="className" className="form-label">Class*</label>
           <select 
           id="className"
           name="className"
@@ -165,7 +168,9 @@ const CharacterCreate = () => {
           className="form-control"
           />
         </div>
-          {isInvalid && isTouched && <span style={{ color: 'red' }}>Please enter all info</span>}
+        <div>
+          <span style={{ color: 'red' }}>{errMessage}</span>
+        </div>
           <button className="btn fancy-btn">Create Character</button>
       </form>
     </div>

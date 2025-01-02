@@ -11,7 +11,7 @@ function NavBar({ logout }) {
 
   function loggedOut() {
     return (
-      <Navbar className="navbar-expand-lg bg-body-tertiary fixed-top mt-3">
+      <Navbar className="Back navbar-expand-lg bg-body-tertiary fixed-top">
         <Container class="container-fluid col">
         <Navbar.Collapse className="justify-content-center">
           <Navbar.Brand href="">
@@ -33,7 +33,7 @@ function NavBar({ logout }) {
   }
     function loggedIn() {
       return (
-        <Navbar expand="md" className="bg-body-tertiary fixed-top mt-3">
+        <Navbar expand="md" className="Back bg-body-tertiary fixed-top">
           <Container className="col">
             <Navbar.Collapse className="justify-content-center">
             <Navbar.Brand href="">

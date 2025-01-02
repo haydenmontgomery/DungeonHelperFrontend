@@ -2,6 +2,7 @@ import React from "react";
 import "./CharacterCard.css";
 import { Link } from "react-router-dom";
 
+
 const BASE_URL = import.meta.env.VITE_REACT_APP_BASE_URL || "http://localhost:3001";
 // Show character information. Is rendered by CharacterCardList to show a "card" for each character.
 

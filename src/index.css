@@ -11,6 +11,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family:'Dancing Script',serif;
+  font-style:italic;
+  background-image: url(https://images.unsplash.com/photo-1546484396-fb3fc6f95f98);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; /* This makes the background stay in place while scrolling */
+  height: 100vh; /* Adjust the height depending on the section */
 }
 
 a {
@@ -28,6 +35,13 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  font-family:'Dancing Script',serif;
+  font-style:italic;
+  background-image: url(https://images.unsplash.com/photo-1546484396-fb3fc6f95f98);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; /* This makes the background stay in place while scrolling */
+  height: 100vh; /* Adjust the height depending on the section */
 }
 
 h1 {

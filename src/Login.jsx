@@ -12,6 +12,7 @@ const Login = ({ loginUser }) => {
   const [formData, setFormData] = useState(INITIAL_STATE)
   const [isInvalid, setIsInvalid] = useState(true);
   const [isTouched, setIsTouched] = useState(false);
+  const [errMessage, setErrMessage] = useState();
 
   //Once all forms input have been touched, it can submit unless the values are blank.
   const handleChange = (e) => {
@@ -37,6 +38,7 @@ const Login = ({ loginUser }) => {
         navigate("/campaigns")
       } catch(err){
         console.log(err)
+        setErrMessage(err);
       }
       setIsInvalid(true);
       setIsTouched(false);
@@ -54,6 +56,7 @@ const Login = ({ loginUser }) => {
           type="text"
           name="username"
           value={formData.username}
+          placeholder="Username"
           onChange={handleChange}
           className="form-control"
           />
@@ -64,13 +67,16 @@ const Login = ({ loginUser }) => {
           id="password"
           type="password"
           name="password"
+          placeholder="Password"
           value={formData.password}
           onChange={handleChange}
           className="form-control"
           />
         </div>
-          {isInvalid && isTouched && <span style={{ color: 'red' }}>Please enter all info</span>}
-          <button className="fancy-btn btn">Login</button>
+          <div>
+            <span style={{ color: 'red' }}>{errMessage}</span>
+          </div>
+          <button type="submit" className="fancy-btn btn">Login</button>
       </form>
     </div>
     </>

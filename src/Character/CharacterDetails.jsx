@@ -7,6 +7,8 @@ import "./CharacterDetails.css";
 
 // Character Details page.
 
+const BASE_URL = import.meta.env.VITE_REACT_APP_BASE_URL || "http://localhost:3001";
+
 function CharacterDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -105,9 +107,18 @@ function CharacterDetails() {
   if (!character) return <LoadingSign />;
   return (
     <div className="CharacterDetails col-md-8 offset-md-2">
+      {character.profileUrl 
+        ? (
+          character.profileUrl === "/static/images/default_profile.png" 
+          ? <img src={`${BASE_URL}${character.profileUrl}`} alt="Default Profile" /> 
+          : <img src={character.profileUrl} alt="User Profile" />
+        ) 
+        : <img src={`${BASE_URL}${character.profileUrl}`} alt="Fallback Profile" />
+        }
       <p className="CharacterDetails-title">{character.name}  <button className="btn fancy-btn CharacterDetails-title" onClick={handleCharacterDelete}>Delete</button></p>
       <h4 className="CharacterDetails">{character.bio}</h4>
-      <h4></h4>
+      <br></br>
+      <h4>Inventory</h4>
       <div>
         <form onSubmit={(e) => {
           e.preventDefault();
@@ -122,7 +133,7 @@ function CharacterDetails() {
             const selectedEquipment = e.target.value;
             handleEquipmentChange(selectedEquipment);
           }}>
-            {character.inventory.map((item, index) => (
+            {character.invengory && character.inventory.map((item, index) => (
               <option key={index} value={item}>{item[0].toUpperCase() + item.slice(1)}</option>
             ))}
           </select>

@@ -29,11 +29,11 @@
 body {
   font-family:'Dancing Script',serif;
   font-style:italic;
-  background-image: url(https://images.unsplash.com/photo-1546484396-fb3fc6f95f98);
+  /* background-image: url(https://images.unsplash.com/photo-1546484396-fb3fc6f95f98);
   background-position: center;
   background-size: cover;
-  background-attachment: fixed; /* This makes the background stay in place while scrolling */
-  height: 100vh; /* Adjust the height depending on the section */
+  background-attachment: fixed; */ /* This makes the background stay in place while scrolling */
+  /* height: 100vh; */ /* Adjust the height depending on the section */
 }
 
 .logo {
