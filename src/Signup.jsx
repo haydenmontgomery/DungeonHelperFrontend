@@ -56,6 +56,7 @@ const Signup = ({ signupUser }) => {
           id="username"
           type="text"
           name="username"
+          placeholder="Username"
           value={formData.username}
           onChange={handleChange}
           className="form-control"
@@ -67,6 +68,7 @@ const Signup = ({ signupUser }) => {
           id="password"
           type="password"
           name="password"
+          placeholder="Password"
           value={formData.password}
           onChange={handleChange}
           className="form-control"
@@ -78,6 +80,7 @@ const Signup = ({ signupUser }) => {
           id="firstName"
           type="text"
           name="firstName"
+          placeholder="First Name"
           value={formData.firstName}
           onChange={handleChange}
           className="form-control"
@@ -89,6 +92,7 @@ const Signup = ({ signupUser }) => {
           id="lastName"
           type="text"
           name="lastName"
+          placeholder="Last Name"
           value={formData.lastName}
           onChange={handleChange}
           className="form-control"
@@ -100,6 +104,7 @@ const Signup = ({ signupUser }) => {
           id="email"
           type="email"
           name="email"
+          placeholder="Email"
           value={formData.email}
           onChange={handleChange}
           className="form-control"
