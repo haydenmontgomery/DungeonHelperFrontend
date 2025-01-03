@@ -21,8 +21,6 @@ const InventoryBox = ({ onClose, handleAdd, categories }) => {
   useEffect(function getEquipmentSearch() {
     async function searchEquipmentFromCategory() {
       const res = await DungeonHelperApi.getEquipmentFromCategory(categoryName);
-      console.log(res.data);
-      console.log(res.data.equipment[0]);
       setEquipmentList(res.data)
       setEquipment(res.data.equipment[0].index);
     }
@@ -35,7 +33,6 @@ const InventoryBox = ({ onClose, handleAdd, categories }) => {
   }
 
   const handleAddingEquipment = () => {
-    console.log(equipment);
     handleAdd(equipment);
   }
 

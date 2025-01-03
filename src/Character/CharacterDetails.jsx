@@ -23,22 +23,10 @@ function CharacterDetails() {
   const toggleInventory = () => {
     setIsInventoryBoxVisible(!isInventoryBoxVisible);
   };
-
-  /* async function categoriesResponse() {
-    try {
-      let catRes = await DungeonHelperApi.getEquipmentCategories();
-      console.log(catRes)
-      return catRes;
-    } catch(e) {
-      console.error(e);
-    }
-  } */
-
  
  const handleEquipmentChange = async (selectedEquipment) => {
    try {
      setEquipment(await DungeonHelperApi.getEquipmentDetails(selectedEquipment));
-     console.log(equipment);
     } catch(e){
       console.error(e);
     }

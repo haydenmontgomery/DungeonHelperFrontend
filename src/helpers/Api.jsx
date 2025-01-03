@@ -60,7 +60,6 @@ class DungeonHelperApi {
   /* Campaigns user is admin. Takes {title} */
   static async getCampaigns(userId) {
     let res = await this.request(`campaigns/user/${userId}`);
-    console.log(res.campaigns);
     return res.campaigns;
   }
 
@@ -84,9 +83,7 @@ class DungeonHelperApi {
 
   /* Campaign post to add users/characters. Takes {title, username, character_id} */
   static async addCharacterCampaign(title, username, character_id) {
-    console.log(title, username, character_id)
     let res = await this.request(`campaigns/${title}/${username}/${character_id}`, {}, "post");
-    console.log(res);
     return res.campaign;
   }
 
@@ -99,7 +96,6 @@ class DungeonHelperApi {
   /***************************      CHARACTER ROUTES             ***************************/
   /* Character creation. Takes {name, className, bio, age, height, level, gold, hp, profileUrl} */
   static async createCharacter(data) {
-    console.log(data);
     data.age = parseInt(data.age);
     data.gold = parseInt(data.gold);
     data.hp = parseInt(data.hp);
@@ -197,7 +193,6 @@ class DungeonHelperApi {
   /* User get individual. Only Admin or actual user. Takes {} */
   static async getCurrentUserCharacters(username) {
     let res = await this.request(`users/${username}`);
-    console.log(res.user);
     return res.user.characters;
   }
 
@@ -229,7 +224,6 @@ class DungeonHelperApi {
   /* Get Equipment details */
   static async getEquipmentDetails(equipment) {
     const index = equipment?.index ? String(equipment.index) : String(equipment); // Handles both object and string inputs
-    console.log("Index:", index);
     try {
       const res = await axios.get(`${DDURL}equipment/${index}`);
       return res.data.desc;

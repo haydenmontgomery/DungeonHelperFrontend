@@ -35,7 +35,6 @@ function CampaignDetails() {
     </>
     )
   } else {
-    console.log(campaign);
     return (
       <>
         <div className="CampaignDetail col-md-8 offset-md-2">

@@ -20,7 +20,6 @@ const CampaignCreate = () => {
   //Once all forms input have been touched, it can submit unless the values are blank.
   function handleChange(e) {
     setIsTouched(true);
-    console.log(e.target.checked)
     if (e.target.checked) {
       setFormData(formData => ({
         ...formData,

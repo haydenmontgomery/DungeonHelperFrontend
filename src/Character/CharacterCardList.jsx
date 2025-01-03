@@ -4,7 +4,6 @@ import CharacterCard from "./CharacterCard"
 //Shows list of characters
 
 function CharacterCardList({characters}) {
-  console.log(characters)
   return (
 
     <div className="container text-center">

@@ -1,6 +1,7 @@
 import React from "react";
 import {render} from '@testing-library/react';
 import CharacterCardList from "./CharacterCardList";
+import { MemoryRouter } from "react-router-dom";
 import { test } from "vitest";
 
 const characters = [ {
@@ -33,5 +34,9 @@ const characters = [ {
 ]
 
 test('it renders without crashing', () => {
-  render(<CharacterCardList characters={characters} />)
+  render(
+    <MemoryRouter>
+      <CharacterCardList characters={characters} />
+    </MemoryRouter>
+  )
 });

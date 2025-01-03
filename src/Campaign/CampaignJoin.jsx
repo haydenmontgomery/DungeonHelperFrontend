@@ -18,7 +18,6 @@ function CampaignJoin() {
 
   useEffect(() => {
     async function getCampaign() {
-      console.log(currentUser);
       setCampaign(await DungeonHelperApi.getCampaign(title));
     }
     

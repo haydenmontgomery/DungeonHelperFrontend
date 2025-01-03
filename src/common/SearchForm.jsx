@@ -9,7 +9,6 @@ const SearchForm = ({ searchFor }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     searchFor(searchTerm.trim() || undefined);
-    console.log("Search Term:", searchTerm);
     setSearchTerm(searchTerm.trim());
   }
 
