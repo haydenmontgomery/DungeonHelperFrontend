@@ -1,24 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import DungeonHelperApi from "../helpers/Api";
 import LoadingSign from "../common/LoadingSign";
-import CharacterCardList from "../Character/CharacterCardList"
+import CharacterCardList from "../Character/CharacterCardList";
+import UserContext from "../UserContext";
 import "./CampaignDetails.css";
 
 // Campaign Detail page.
 
 function CampaignDetails() {
   const { title } = useParams();
-
+  const { currentUser } = useContext(UserContext);
   const [campaign, setCampaign] = useState(null);
+  const hasCampaign = useRef(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
-  useEffect(function getCampaignAndCharactersForUser() {
+  useEffect(() => {
     async function getCampaign() {
-      setCampaign(await DungeonHelperApi.getCampaign(title));
+      const fetchedCampaign = await DungeonHelperApi.getCampaign(title);
+      setCampaign(fetchedCampaign);
     }
 
     getCampaign();
   }, [title]);
+
+  useEffect(() => {
+    if (!hasCampaign.current) {
+      if (!campaign) return;
+      hasCampaign.current = true;
+      return;
+    }
+
+    if (campaign?.admins) {
+      setIsAdmin(campaign.admins.some(admin => admin.admin_id === currentUser.id));
+    }
+  }, [campaign, currentUser.id]);
 
   if (!campaign) return <LoadingSign />;
   if (campaign.characters.length === 0) {

@@ -141,11 +141,12 @@ class DungeonHelperApi {
     return res.session;
   }
 
-  /* Session get. Takes {name} */
+  /* Session get. Takes {name}. */
   static async getSession(name) {
     let res = await this.request(`sessions/${name}`);
     return res.session;
   }
+
 
   /* Session patch. Takes {password, description, expiresAt} */
   static async updateSession(name, data) {

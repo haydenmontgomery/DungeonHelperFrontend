@@ -9,7 +9,7 @@ import CharacterDetails from "./Character/CharacterDetails";
 import CampaignCreate from "./Campaign/CampaignCreate";
 import CampaignJoin from "./Campaign/CampaignJoin";
 import CharacterCreate from "./Character/CharacterCreate";
-import Session from "./Session";
+import Session from "./Session/Session";
 
 function RouteList({ currentUser, loginUser, signupUser }) {
   return (
@@ -50,7 +50,7 @@ function RouteList({ currentUser, loginUser, signupUser }) {
         element={<CampaignJoin />} 
         />
         <Route
-        path="/sessions/:name"
+        path="/sessions/"
         element={<Session />}
         />
         <Route
