@@ -198,13 +198,13 @@ class DungeonHelperApi {
   }
 
   /* User patch. Takes {firstName, lastName, password, email} */
-  static async updateSession(username, data) {
+  static async updateUser(username, data) {
     let res = await this.request(`users/${username}`, data, "patch");
     return res.user;
   }
 
   /* User delete. Takes {} */
-  static async deleteSession(username) {
+  static async deleteUser(username) {
     let res = await this.request(`users/${username}`, "delete");
     return res;
   }

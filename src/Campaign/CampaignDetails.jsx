@@ -61,6 +61,11 @@ function CampaignDetails() {
         <div>
           <Link to={`/${title}/join`} className="fancy-btn btn">Join/Request</Link>  
         </div>
+        {isAdmin &&
+        <div>
+          <button></button>
+        </div>
+        }
       </>
     );
   }

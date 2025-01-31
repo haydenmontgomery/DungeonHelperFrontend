@@ -50,7 +50,7 @@ function RouteList({ currentUser, loginUser, signupUser }) {
         element={<CampaignJoin />} 
         />
         <Route
-        path="/sessions/"
+        path="/sessions/:name"
         element={<Session />}
         />
         <Route

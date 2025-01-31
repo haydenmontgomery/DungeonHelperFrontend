@@ -1,5 +1,7 @@
-.window {
-  display: grid;
-  grid-template-columns: 10% 75% 15%;
-  overflow: hidden;
+.container .contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  gap: 0.8rem;
 }

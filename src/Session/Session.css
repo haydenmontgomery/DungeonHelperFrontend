@@ -16,3 +16,23 @@
     grid-template-columns: 35% 65%;
   }
 }
+
+.container {
+  display: grid;
+  grid-template-columns: 10% 75% 15%;
+  overflow: hidden;
+}
+
+.container .brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  img {
+    height: 2rem;
+  }
+  h3 {
+    color: white;
+    text-transform: uppercase;
+  }
+}
